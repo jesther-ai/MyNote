@@ -72,6 +72,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="label" destination="BYz-ge-Vqf" id="HJ6-yD-RK4"/>
                         <outlet property="table" destination="Whv-sW-ZpQ" id="sFU-E4-nuS"/>
                     </connections>
                 </viewController>
@@ -82,7 +83,7 @@
         <!--Entry View Controller-->
         <scene sceneID="zLQ-3B-3dq">
             <objects>
-                <viewController storyboardIdentifier="new" id="IOk-ko-HrI" customClass="EntryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="new" id="IOk-ko-HrI" customClass="EntryViewController" customModule="Notes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OZN-yP-qzf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +99,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gAc-kC-2l6">
                                 <rect key="frame" x="10" y="116" width="394" height="736"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -132,13 +132,43 @@
                     <view key="view" contentMode="scaleToFill" id="aw2-IB-ZHh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Su7-mr-glR">
+                                <rect key="frame" x="10" y="54" width="394" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Bf2-ua-gbG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zYc-2L-kkg">
+                                <rect key="frame" x="10" y="124" width="394" height="728"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="abo-GQ-otc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zYc-2L-kkg" firstAttribute="leading" secondItem="abo-GQ-otc" secondAttribute="leading" constant="10" id="CBN-v9-psb"/>
+                            <constraint firstItem="abo-GQ-otc" firstAttribute="trailing" secondItem="zYc-2L-kkg" secondAttribute="trailing" constant="10" id="JG4-ek-9ho"/>
+                            <constraint firstItem="abo-GQ-otc" firstAttribute="bottom" secondItem="zYc-2L-kkg" secondAttribute="bottom" constant="10" id="Jbe-7s-anf"/>
+                            <constraint firstItem="abo-GQ-otc" firstAttribute="trailing" secondItem="Su7-mr-glR" secondAttribute="trailing" constant="10" id="U7S-ix-MtI"/>
+                            <constraint firstItem="Su7-mr-glR" firstAttribute="top" secondItem="abo-GQ-otc" secondAttribute="top" constant="10" id="Xkf-Zb-9vz"/>
+                            <constraint firstItem="zYc-2L-kkg" firstAttribute="top" secondItem="Su7-mr-glR" secondAttribute="bottom" constant="10" id="fjV-Lx-DTL"/>
+                            <constraint firstItem="Su7-mr-glR" firstAttribute="leading" secondItem="abo-GQ-otc" secondAttribute="leading" constant="10" id="tSS-Kr-jlg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="Su7-mr-glR" id="8vm-AQ-wNX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdK-l8-igc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2571" y="120"/>
+            <point key="canvasLocation" x="2532" y="112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CdR-dI-6QR">

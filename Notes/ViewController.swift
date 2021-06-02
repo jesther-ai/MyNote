@@ -28,13 +28,15 @@ class ViewController: UIViewController {
         vc.title = "New Note"
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { noteTitle, note in
-            self.models.append((noteTitle, note))
-            self.table.reloadData()
+            self.navigationController?.popToRootViewController(animated: true)
+            self.models.append((title: noteTitle, note: note))
             self.label.isHidden = true
             self.table.isHidden = false
+
+            self.table.reloadData()
         }
-        
         navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 
@@ -54,15 +56,15 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        let model = models[indexPath.row]
         //will show noteController
         guard let vc = storyboard?.instantiateViewController(identifier: "note") as? NoteViewController else {return}
         vc.title = "Note"
+        vc.noteTitle = model.title
+        vc.note = model.note
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
         
     }
-    
-    
 }
 
